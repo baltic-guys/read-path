@@ -36,7 +36,7 @@ subprojects {
     repositories {
         mavenCentral()
         maven {
-            //for khhtp depends
+            //for khttp depends
             url = uri("https://repo.spring.io/libs-release/")
         }
     }
