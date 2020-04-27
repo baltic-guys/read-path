@@ -11,6 +11,8 @@
 >https://codepen.io/meuequalsd/pen/YLdwyj
 
 >https://codepen.io/logiccanvas-the-lessful/pen/ExjPKmx
+
+>http://almende.github.io/chap-links-library/timeline.html
 - [ ] Book challenge с другими пользователями / рейтинг
 - [ ] Трекинг активности чтения книг и сопутствующие метрики (можно через телеграмм бота / apple watch заносить данные)
 - [ ] Доп информация по книги
