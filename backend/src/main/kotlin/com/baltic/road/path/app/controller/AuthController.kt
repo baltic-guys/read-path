@@ -20,20 +20,14 @@ class AuthController(val authService: AuthService) {
     @PostMapping("/reg")
     @ApiOperation("Registration new user")
     fun reg(@RequestBody user: UserDto): ResponseEntity<AuthDto?> {
-        val header = authService.registration(user)
-        if (header == null) {
-            return ResponseEntity.badRequest().body(null)
-        }
-        return ResponseEntity.status(HttpStatus.CREATED).body(AuthDto(header))
+        val header = authService.registration(user) ?: return ResponseEntity.badRequest().body(null)
+        return ResponseEntity.status(HttpStatus.CREATED).body(header)
     }
 
     @PostMapping("/login")
     @ApiOperation("Login user")
     fun login(@RequestBody user: UserDto): ResponseEntity<AuthDto> {
-        val header = authService.login(user)
-        if (header == null) {
-            return ResponseEntity.badRequest().body(null)
-        }
-        return ResponseEntity.ok().body(AuthDto(header))
+        val header = authService.login(user) ?: return ResponseEntity.badRequest().body(null)
+        return ResponseEntity.ok().body(header)
     }
 }
