@@ -4,6 +4,9 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
+    }
 }
 
 plugins {
@@ -13,6 +16,8 @@ plugins {
     kotlin("jvm") version "1.3.50" apply false
     kotlin("plugin.spring") version "1.3.50" apply false
 }
+
+apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
 allprojects {
     group = "com.kotlin"
