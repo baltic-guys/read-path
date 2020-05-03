@@ -22,8 +22,10 @@ class AuthController(val authService: AuthService) {
     @PostMapping("/reg")
     @ApiOperation("Registration new user")
     fun reg(@RequestBody user: UserDto): ResponseEntity<AuthDto?> {
-        if (authService.exist(user) != null) return ResponseEntity.badRequest().body(AuthDto(null, null))
-        val header = authService.registration(user) ?: return ResponseEntity.badRequest().body(AuthDto(null, null))
+        if (authService.exist(user) != null) {
+            return ResponseEntity.badRequest().body(AuthDto(null, null))
+        }
+        val header = authService.registration(user)
         return ResponseEntity.status(HttpStatus.CREATED).body(header)
     }
 

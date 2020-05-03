@@ -23,6 +23,35 @@ ktlint {
     }
 }
 
+detekt {
+    toolVersion = "1.8.0"
+    input = files("src/main/java", "src/main/kotlin")
+    parallel = false
+    config = files("${rootProject.rootDir}/detekt.yml")
+    buildUponDefaultConfig = false
+    disableDefaultRuleSets = false
+    debug = false
+    ignoreFailures = false
+    reports {
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("build/reports/detekt.html")
+        }
+        txt {
+            enabled = true
+            destination = file("build/reports/detekt.txt")
+        }
+        custom {
+            reportId = "CustomJsonReport"
+            destination = file("build/reports/detekt.json")
+        }
+    }
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")

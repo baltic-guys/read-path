@@ -27,15 +27,10 @@ class InMemoryUserDao : UserDao {
     }
 
     override fun deleteUser(user: UserDto): Boolean {
-        return try {
-            userList.removeIf(Predicate {
-                (it.username == user.username)
-                    .and(it.password == user.password)
-                    .and(it.id == user.id)
-            })
-            true
-        } catch (e: Exception) {
-            false
-        }
+        return userList.removeIf(Predicate {
+            (it.username == user.username)
+                .and(it.password == user.password)
+                .and(it.id == user.id)
+        })
     }
 }
