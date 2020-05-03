@@ -1,6 +1,4 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
 interface IProps { }
 
@@ -73,10 +71,16 @@ class App extends React.Component<IProps, IState> {
         this.setState({ books: array });
     }
 
+    out() {
+        localStorage.clear();
+        document.location.reload();
+    }
+
     render() {
         return (
             <div>
                 <h1>Road path</h1>
+                <button onClick={(e) => this.out()}>Log out</button>
                 <div className="content">
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input
