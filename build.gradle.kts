@@ -13,7 +13,7 @@ plugins {
     id("org.springframework.boot") version "2.2.0.RELEASE" apply false
     id("io.spring.dependency-management") version "1.0.8.RELEASE" apply false
 
-    kotlin("jvm") version "1.3.50" apply false
+    kotlin("jvm") version "1.3.72" apply false
     kotlin("plugin.spring") version "1.3.50" apply false
 }
 
@@ -21,7 +21,7 @@ apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
 allprojects {
     group = "com.kotlin"
-    version = "1.0.0"
+    version = "1.3.72"
 
     tasks.withType<JavaCompile> {
         sourceCompatibility = "1.8"
@@ -40,6 +40,10 @@ allprojects {
 subprojects {
     repositories {
         mavenCentral()
+        maven {
+            //for khttp depends
+            url = uri("https://repo.spring.io/libs-release/")
+        }
     }
 
     apply {
