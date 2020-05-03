@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+    networks:
+      - spring-web
+      - spring-nginx
+    ports:
+      - 8080:8080
+
+  web:
+    container_name: web
+    build: baltic-frontend
+    networks:
+      - spring-web
+      - spring-nginx
+    ports:
+      - 3000:80
+    depends_on:
+      - backend
+
+  proxy:
+    build: nginx
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - spring-nginx
+      - spring-web
+    depends_on:
+      - web
+networks:
+  spring-web: {}
+  spring-nginx: {}
