@@ -23,6 +23,8 @@ class SimpleAuthServiceImpl(
         return null
     }
 
+    override fun exist(user: UserDto): UserDto? = userDao.exist(user)
+
     override fun registration(user: UserDto): AuthDto? = login(userDao.addUser(user))
 
     private fun getBasicHeader(str: Array<String>): String {

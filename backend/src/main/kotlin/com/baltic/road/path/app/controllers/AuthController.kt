@@ -1,4 +1,4 @@
-package com.baltic.road.path.app.controller
+package com.baltic.road.path.app.controllers
 
 import com.baltic.road.path.app.dto.AuthDto
 import com.baltic.road.path.app.dto.UserDto
@@ -18,6 +18,7 @@ class AuthController(val authService: AuthService) {
     @PostMapping("/reg")
     @ApiOperation("Registration new user")
     fun reg(@RequestBody user: UserDto): ResponseEntity<AuthDto?> {
+        if (authService.exist(user) != null) return ResponseEntity.badRequest().body(AuthDto(null, null))
         val header = authService.registration(user) ?: return ResponseEntity.badRequest().body(AuthDto(null, null))
         return ResponseEntity.status(HttpStatus.CREATED).body(header)
     }

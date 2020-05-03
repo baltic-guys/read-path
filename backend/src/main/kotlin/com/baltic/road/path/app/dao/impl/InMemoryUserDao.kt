@@ -14,6 +14,10 @@ class InMemoryUserDao : UserDao {
                 .and(userDto.password == user.password) }
     }
 
+    override fun exist(user: UserDto): UserDto? {
+        return userList.find { (it.username == user.username).or(it.email == user.email)}
+    }
+
     override fun addUser(user: UserDto): UserDto {
         user.id = Base64Utils.encodeToString("${user.username}:${user.password}".toByteArray())
         userList.add(user)

@@ -1,4 +1,4 @@
-package com.baltic.road.path.app.controller
+package com.baltic.road.path.app.controllers
 
 import com.baltic.road.path.app.dto.TestDto
 import com.baltic.road.path.app.service.CredentialService

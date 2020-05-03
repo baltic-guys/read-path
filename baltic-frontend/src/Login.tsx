@@ -6,6 +6,7 @@ function Login() {
         <div>
             <div id="reg">
                 <input placeholder="username" id="ur" />
+                <input placeholder="email" id="er" />
                 <input placeholder="password" id="pr" />
                 <button onClick={(e) => reg()}>Sign up</button>
             </div>
@@ -40,13 +41,14 @@ function Login() {
     }
 
     function reg(): void {
+        var er = (document.querySelector('#er') as HTMLInputElement).value
         let un = (document.querySelector('#ur') as HTMLInputElement).value
         var pd = (document.querySelector('#pr') as HTMLInputElement).value
 
         var data = http<AuthDto>(
             new Request("http://localhost:8080/auth/reg", {
                 method: 'POST',
-                body: JSON.stringify({ username: un, password: pd }),
+                body: JSON.stringify({ username: un, password: pd, email: er}),
                 headers: { 'Content-Type': 'application/json; charset=utf-8' }
             })
         )

@@ -80,7 +80,7 @@ class App extends React.Component<IProps, IState> {
         return (
             <div>
                 <h1>Road path</h1>
-                <button onClick={(e) => out()}>Log out</button>
+                <button onClick={(e) => this.out()}>Log out</button>
                 <div className="content">
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <input
