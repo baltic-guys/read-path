@@ -1,9 +1,26 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML
+
 plugins {
     id("org.springframework.boot")
     id("groovy")
+    id("org.jlleitschuh.gradle.ktlint")
 
     kotlin("jvm")
     kotlin("plugin.spring")
+}
+
+ktlint {
+    verbose.set(true)
+    outputToConsole.set(true)
+    coloredOutput.set(true)
+    reporters {
+        reporter(CHECKSTYLE)
+        reporter(HTML)
+    }
+    filter {
+        exclude("**/style-violations.kt")
+    }
 }
 
 dependencies {

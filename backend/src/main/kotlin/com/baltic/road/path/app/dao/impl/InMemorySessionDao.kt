@@ -4,7 +4,7 @@ import com.baltic.road.path.app.dao.SessionDao
 import com.baltic.road.path.app.dto.SessionDto
 import java.util.function.Consumer
 
-class InMemorySessionDao: SessionDao {
+class InMemorySessionDao : SessionDao {
 
     var sessionList = mutableListOf<SessionDto>()
 

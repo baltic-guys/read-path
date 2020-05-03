@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 buildscript {
     repositories {
         mavenCentral()
+        maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
         classpath("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
@@ -44,9 +45,11 @@ subprojects {
             //for khttp depends
             url = uri("https://repo.spring.io/libs-release/")
         }
+        maven("https://plugins.gradle.org/m2/")
     }
 
     apply {
         plugin("io.spring.dependency-management")
+        plugin("org.jlleitschuh.gradle.ktlint")
     }
 }

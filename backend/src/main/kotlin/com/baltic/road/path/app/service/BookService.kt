@@ -1,4 +1,4 @@
-package com.baltic.road.path.app.services
+package com.baltic.road.path.app.service
 
 import com.baltic.road.path.app.dto.BookDto
 

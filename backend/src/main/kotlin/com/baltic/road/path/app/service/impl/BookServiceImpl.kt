@@ -1,7 +1,8 @@
-package com.baltic.road.path.app.services
+package com.baltic.road.path.app.service.impl
 
 import com.baltic.road.path.app.dao.BookDao
 import com.baltic.road.path.app.dto.BookDto
+import com.baltic.road.path.app.service.BookService
 import org.springframework.stereotype.Service
 
 @Service

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController
 @Api("Controller for test")
 class PlaygroundController(val credentialService: CredentialService) {
 
-
     @PostMapping("/hello")
     fun test(@RequestBody msg: TestDto): ResponseEntity<String> {
         if (!credentialService.checkCredentional(msg.token)) {
