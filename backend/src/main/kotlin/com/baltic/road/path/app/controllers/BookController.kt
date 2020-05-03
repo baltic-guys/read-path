@@ -1,5 +1,6 @@
 package com.baltic.road.path.app.controllers
 
+import com.baltic.road.path.app.dto.BookDto
 import com.baltic.road.path.app.services.BookService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -12,10 +13,10 @@ class BookController(private val bookService: BookService) {
     fun listBooks() = ResponseEntity.ok().body(bookService.listAll())
 
     @PostMapping("/add")
-    fun addBook(book: Nothing) = ResponseEntity.ok().body(bookService.create(book))
+    fun addBook(@RequestBody book: BookDto) = ResponseEntity.ok().body(bookService.create(book))
 
     @PostMapping("/update")
-    fun updateBook(book: Nothing) = ResponseEntity.ok().body(bookService.update(book))
+    fun updateBook(@RequestBody book: BookDto) = ResponseEntity.ok().body(bookService.update(book))
 
     @GetMapping("/{id}")
     fun getBook(@PathVariable("id") id: String) = ResponseEntity.ok().body(bookService.getById(id))

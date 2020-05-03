@@ -1,9 +1,8 @@
-package com.baltic.road.path.app.services
+package com.baltic.road.path.app.dao
 
 import com.baltic.road.path.app.dto.BookDto
 
-interface BookService {
-
+interface BookDao {
     fun listAll(): List<BookDto>
 
     fun create(book: BookDto): BookDto
