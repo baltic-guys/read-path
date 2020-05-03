@@ -35,7 +35,7 @@ class SwaggerConfig {
     }
 
     @Override
-    protected fun addResourceHandlers(registry: ResourceHandlerRegistry) {
+    fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/")
         registry.addResourceHandler("/webjars/**")

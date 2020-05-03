@@ -13,5 +13,4 @@ class CredentialServiceImpl(val sessionDao: SessionDao): CredentialService {
         }
         return false
     }
-
 }

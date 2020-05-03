@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import io.gitlab.arturbosch.detekt.Detekt
 
 buildscript {
     repositories {
@@ -40,6 +41,11 @@ allprojects {
 }
 
 subprojects {
+    apply {
+        plugin("io.spring.dependency-management")
+        plugin("io.gitlab.arturbosch.detekt")
+    }
+
     repositories {
         mavenCentral()
         maven {
@@ -47,10 +53,5 @@ subprojects {
             url = uri("https://repo.spring.io/libs-release/")
         }
         jcenter()
-    }
-
-    apply {
-        plugin("io.spring.dependency-management")
-        plugin("io.gitlab.arturbosch.detekt")
     }
 }
