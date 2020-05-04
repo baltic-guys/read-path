@@ -2,10 +2,10 @@ package com.baltic.road.path.app.gr.service
 
 import com.baltic.road.path.app.gr.client.SimpleGRClient
 import com.baltic.road.path.app.gr.client.SimpleGRClient.SearchType.ALL
-import com.baltic.road.path.app.model.Book
-import com.baltic.road.path.app.model.BookSearchResponse
 import com.baltic.road.path.app.gr.model.api.GoodreadsResponse
 import com.baltic.road.path.app.gr.model.api.Work
+import com.baltic.road.path.app.model.Book
+import com.baltic.road.path.app.model.BookSearchResponse
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
@@ -25,7 +25,7 @@ class GRService {
 
     private fun extractBooks(resposne: GoodreadsResponse): BookSearchResponse {
         val bookSearchResponse = BookSearchResponse()
-        for(work: Work in resposne.search?.results?.work!!) {
+        for (work: Work in resposne.search?.results?.work!!) {
             var book = Book()
             book.title = work.book?.title
             bookSearchResponse.books.add(book)

@@ -15,7 +15,6 @@ object SimpleGRClient {
         return request(query)
     }
 
-
     enum class SearchType(val type: String) {
         TITLE("title"),
         AUTHOR("author"),
