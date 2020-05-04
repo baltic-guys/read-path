@@ -2,7 +2,7 @@ package com.baltic.road.path.app.gr.client
 
 object SimpleGRClient {
 
-    private val baseUrl = "https://www.goodreads.com"
+    private const val baseUrl = "https://www.goodreads.com"
 
     @JvmStatic
     fun request(query: String): String {

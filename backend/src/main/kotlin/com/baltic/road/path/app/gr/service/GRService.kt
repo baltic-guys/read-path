@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 
-// todo: interface for other datagate
+// TODO(interface for other datagate)
 class GRService {
     private var grApiKey = "qF3rQniJYU52xvIHtbYFA"
     private var mapper = XmlMapper()
