@@ -1,9 +1,55 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML
+
 plugins {
     id("org.springframework.boot")
     id("groovy")
+    id("org.jlleitschuh.gradle.ktlint")
 
     kotlin("jvm")
     kotlin("plugin.spring")
+}
+
+ktlint {
+    verbose.set(true)
+    outputToConsole.set(true)
+    coloredOutput.set(true)
+    reporters {
+        reporter(CHECKSTYLE)
+        reporter(HTML)
+    }
+    filter {
+        exclude("**/style-violations.kt")
+    }
+}
+
+detekt {
+    toolVersion = "1.8.0"
+    input = files("src/main/java", "src/main/kotlin")
+    parallel = false
+    config = files("${rootProject.rootDir}/detekt.yml")
+    buildUponDefaultConfig = false
+    disableDefaultRuleSets = false
+    debug = false
+    ignoreFailures = false
+    reports {
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("build/reports/detekt.html")
+        }
+        txt {
+            enabled = true
+            destination = file("build/reports/detekt.txt")
+        }
+        custom {
+            reportId = "CustomJsonReport"
+            destination = file("build/reports/detekt.json")
+        }
+    }
 }
 
 dependencies {

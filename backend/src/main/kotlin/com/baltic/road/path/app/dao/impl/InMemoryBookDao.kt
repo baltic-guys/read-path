@@ -5,7 +5,7 @@ import com.baltic.road.path.app.dto.BookDto
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.function.Predicate
 
-class InMemoryBookDao: BookDao {
+class InMemoryBookDao : BookDao {
 
     var bookList = mutableListOf<BookDto>()
 

@@ -9,9 +9,10 @@ import com.baltic.road.path.app.service.AuthService
 import org.springframework.util.Base64Utils
 
 class SimpleAuthServiceImpl(
-        val userDao: UserDao,
-        val sessionDao: SessionDao,
-        val secret: String): AuthService {
+    val userDao: UserDao,
+    val sessionDao: SessionDao,
+    val secret: String
+) : AuthService {
 
     override fun login(user: UserDto): AuthDto? {
         if (userDao.getUser(user) != null) {
