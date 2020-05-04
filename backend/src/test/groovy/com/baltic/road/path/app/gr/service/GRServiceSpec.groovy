@@ -1,6 +1,6 @@
 package com.baltic.road.path.app.gr.service
 
-import com.baltic.road.path.app.gr.model.BookSearchResponse
+import com.baltic.road.path.app.model.BookSearchResponse
 import spock.lang.Specification
 
 class GRServiceSpec extends Specification {

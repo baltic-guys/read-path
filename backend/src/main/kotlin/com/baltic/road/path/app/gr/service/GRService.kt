@@ -2,8 +2,8 @@ package com.baltic.road.path.app.gr.service
 
 import com.baltic.road.path.app.gr.client.SimpleGRClient
 import com.baltic.road.path.app.gr.client.SimpleGRClient.SearchType.ALL
-import com.baltic.road.path.app.gr.model.Book
-import com.baltic.road.path.app.gr.model.BookSearchResponse
+import com.baltic.road.path.app.model.Book
+import com.baltic.road.path.app.model.BookSearchResponse
 import com.baltic.road.path.app.gr.model.api.GoodreadsResponse
 import com.baltic.road.path.app.gr.model.api.Work
 import com.fasterxml.jackson.databind.DeserializationFeature
