@@ -28,14 +28,16 @@ allprojects {
     version = "1.3.72"
 
     tasks.withType<JavaCompile> {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
+        sourceCompatibility = JavaVersion.VERSION_11.toString()
+        targetCompatibility = JavaVersion.VERSION_11.toString()
     }
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
-            jvmTarget = "1.8"
+
+            // temporary 1.8 target for local running
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
             incremental = false
         }
     }
