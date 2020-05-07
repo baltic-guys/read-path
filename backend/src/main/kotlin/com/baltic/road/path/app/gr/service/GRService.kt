@@ -9,13 +9,13 @@ import com.baltic.road.path.app.model.BookSearchResponse
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
 // TODO(interface for other datagate)
 class GRService {
-    private var grApiKey = "qF3rQniJYU52xvIHtbYFA"
-    private var mapper = XmlMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-            .setPropertyNamingStrategy(PropertyNamingStrategy.KEBAB_CASE)
+    private val grApiKey = "qF3rQniJYU52xvIHtbYFA"
+    private val mapper = XmlMapper().registerKotlinModule()
 
     fun searchBooksByISBN(isbn: String, page: Int): BookSearchResponse {
         val xml = SimpleGRClient.search(grApiKey, isbn, page, ALL)
@@ -25,9 +25,8 @@ class GRService {
 
     private fun extractBooks(resposne: GoodreadsResponse): BookSearchResponse {
         val bookSearchResponse = BookSearchResponse()
-        for (work: Work in resposne.search?.results?.work!!) {
-            var book = Book()
-            book.title = work.book?.title
+        for (work: Work in resposne.search.results.work) {
+            val book = Book(work.book.title)
             bookSearchResponse.books.add(book)
         }
         return bookSearchResponse
