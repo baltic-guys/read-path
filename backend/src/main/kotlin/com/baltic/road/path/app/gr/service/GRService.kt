@@ -15,7 +15,10 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 // TODO(interface for other datagate)
 class GRService {
     private val grApiKey = "qF3rQniJYU52xvIHtbYFA"
-    private val mapper = XmlMapper().registerKotlinModule()
+    private val mapper = XmlMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .setPropertyNamingStrategy(PropertyNamingStrategy.KEBAB_CASE)
+            .registerKotlinModule()
 
     fun searchBooksByISBN(isbn: String, page: Int): BookSearchResponse {
         val xml = SimpleGRClient.search(grApiKey, isbn, page, ALL)

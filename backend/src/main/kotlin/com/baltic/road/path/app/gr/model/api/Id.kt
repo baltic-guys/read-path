@@ -5,7 +5,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText
 
 data class Id(
     @JacksonXmlProperty(isAttribute = true)
-    var type: String,
+    var type: String
+) {
     @JacksonXmlText
-    private var value: Int
-)
+    lateinit var value: String private set
+}
