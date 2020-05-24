@@ -31,4 +31,10 @@ class InMemoryBookDao : BookDao {
     override fun delete(id: String) {
         bookList.removeIf(Predicate { it.id == id })
     }
+
+    override fun deleteAll(secret: String) {
+        if (secret == "ADMIN") {
+            bookList.clear()
+        }
+    }
 }
