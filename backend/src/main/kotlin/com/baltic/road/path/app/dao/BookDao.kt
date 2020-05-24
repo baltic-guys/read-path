@@ -12,4 +12,6 @@ interface BookDao {
     fun getById(id: String): BookDto?
 
     fun delete(id: String)
+
+    fun deleteAll(secret: String)
 }
